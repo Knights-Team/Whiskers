@@ -35,8 +35,15 @@ For this manner, we will do the following procedure:
 - The next day every team member will do the pull request in the morning for the main branch and do their tasks and so on.
   This collaborative work will be done by making an organization in GitHub that has all the team members, in this organization we will have the project repository and on this repository, we will do the above procedure.
 
+
 ## Wire Frame
 
 ![get started page](./assets/GetStarted.png)
 ![login page](./assets/Login.png)
 ![Landing page](./assets/Landing.png)
+
+
+## Database schema
+
+![](./img/Capture.PNG)
+
