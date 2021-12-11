@@ -8,4 +8,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
     <string name="sign_up">Sign Up</string>
+    <string name="get_started"><b>Healthy and Happy Pets</b></string>
+    <string name="get_started2">Be the voice for the voiceless, join us to help pets in need\n
+    <br>Save a life, win a friend !</br></string>
 </resources>
