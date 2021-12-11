@@ -1,0 +1,136 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreatePost {
+  onCreatePost {
+    id
+    description
+    image
+    location
+    userID
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    description
+    image
+    location
+    userID
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    id
+    description
+    image
+    location
+    userID
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    userName
+    email
+    fullName
+    phoneNumber
+    volunteer
+    Posts {
+      items {
+        id
+        description
+        image
+        location
+        userID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    userName
+    email
+    fullName
+    phoneNumber
+    volunteer
+    Posts {
+      items {
+        id
+        description
+        image
+        location
+        userID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    userName
+    email
+    fullName
+    phoneNumber
+    volunteer
+    Posts {
+      items {
+        id
+        description
+        image
+        location
+        userID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}

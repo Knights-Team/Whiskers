@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-dev-183925-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-dev-183925-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-dev-183925-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whiskers-dev-183925-deployment",
+      "UnauthRoleName": "amplify-whiskers-dev-183925-unauthRole",
+      "StackName": "amplify-whiskers-dev-183925",
+      "StackId": "arn:aws:cloudformation:us-east-1:957935758509:stack/amplify-whiskers-dev-183925/e9f9eb60-5aa0-11ec-b0ed-0e5d50560d99",
+      "AmplifyAppId": "d4ugrnzr04lam"
+    }
+  }
+}
