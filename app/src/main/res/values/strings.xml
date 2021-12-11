@@ -9,6 +9,7 @@
     <string name="register">Register</string>
     <string name="sign_up">Sign Up</string>
     <string name="get_started"><b>Healthy and Happy Pets</b></string>
-    <string name="get_started2">Be the voice for the voiceless, join us to help pets in need\n
+    <string name="get_started2">Be the voice for the voiceless, Join us.
     <br>Save a life, win a friend !</br></string>
+    <string name="get_button">Get Started</string>
 </resources>
