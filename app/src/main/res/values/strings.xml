@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Whiskers</string>
+    <string name="get_started"><b>Healthy and Happy Pets</b></string>
+    <string name="get_started2">Be the voice for the voiceless, join us to help pets in need\n
+    <br>Save a life, win a friend !</br></string>
+
+
 </resources>
