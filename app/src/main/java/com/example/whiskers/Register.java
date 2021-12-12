@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity {
                 TextView fullnameerr =findViewById(R.id.helperfullname);
                 TextView phoneerr =findViewById(R.id.helperphone);
                 TextView emailerr=findViewById(R.id.helperemail);
-               passworderr.setHint(null);
+                passworderr.setHint(null);
                 fullnameerr.setHint(null);
                 phoneerr.setHint(null);
                 emailerr.setHint(null);
