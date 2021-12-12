@@ -3,8 +3,10 @@ package com.example.whiskers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -17,18 +19,13 @@ public class EmailConfirmationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_confirmation);
 
-        Intent passedData = getIntent();
-//        String email = passedData.getStringExtra(AuthActivity.USER_EMAIL);
 
-        EditText confirmationCode = findViewById(R.id.verification_code_input);
-        EditText email= findViewById(R.id.email1);
-        Button confirmBtn = findViewById(R.id.confirm);
-        confirmBtn.setOnClickListener(view -> {
-            String code = confirmationCode.getText().toString();
-            verifyEmail(code, email.getText().toString());
-        });
     }
-    private void verifyEmail(String verificationCode, String email) {
+    public void verifyEmail(View view) {
+        EditText confirmationCode = findViewById(R.id.verification_code_input);
+        String verificationCode = confirmationCode.getText().toString();
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("whiskers",MODE_PRIVATE);
+        String email = sharedPreferences.getString("email",null);
         Amplify.Auth.confirmSignUp(
                 email,
                 verificationCode,

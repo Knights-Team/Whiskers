@@ -43,12 +43,14 @@ public class Login extends AppCompatActivity {
                 email,
                 password,
                 result -> {
-                    Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+                    Log.i("Amplify", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+                    startActivity(new Intent(this,Empty.class));
+                    finish();
 
                 },
-                error -> Log.e("AuthQuickstart", error.toString())
+                error -> Log.e("Amplify", error.toString())
         );
-        startActivity(new Intent(Login.this, MainActivity.class));
+
 
     }
     public void toSignUp(View view) {

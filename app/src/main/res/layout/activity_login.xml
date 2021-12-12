@@ -8,17 +8,19 @@
         tools:context=".Login">
 
     <TextView
-            android:layout_width="138dp"
-            android:layout_height="61dp"
+            android:layoutDirection="ltr"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/logo"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.124"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.049" />
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
+            tools:ignore="TextContrastCheck" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -60,6 +62,7 @@
 
 
         <TextView
+                android:layoutDirection="ltr"
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,6 +87,7 @@
                 android:contentDescription="@string/social_log_in" />
 
         <Button
+                android:layoutDirection="ltr"
                 android:onClick="toSignUp"
                 android:id="@+id/signupButton"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -103,7 +107,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:hint="@string/username"
+                android:hint="@string/email"
                 android:textColorHint="@color/black"
                 app:boxCornerRadiusBottomEnd="20dp"
                 app:boxCornerRadiusBottomStart="20dp"
@@ -139,7 +143,7 @@
                 app:boxCornerRadiusTopStart="20dp"
                 app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-
+                android:layoutDirection="ltr"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/usernameTextFieldLogin"
                 app:layout_constraintWidth_percent="0.8"
