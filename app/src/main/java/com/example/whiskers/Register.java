@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +39,10 @@ public class Register extends AppCompatActivity {
                 TextView fullnameerr =findViewById(R.id.helperfullname);
                 TextView phoneerr =findViewById(R.id.helperphone);
                 TextView emailerr=findViewById(R.id.helperemail);
-//
+               passworderr.setHint(null);
+                fullnameerr.setHint(null);
+                phoneerr.setHint(null);
+                emailerr.setHint(null);
 
 
                 TextInputEditText userNameID = findViewById(R.id.registerEmail);
@@ -45,7 +50,7 @@ public class Register extends AppCompatActivity {
                 TextInputEditText emailID = findViewById(R.id.registerEmail);
                 TextInputEditText fullNameID = findViewById(R.id.registerName);
                 TextInputEditText phoneNumberID = findViewById(R.id.registerPhoneNumber);
-userNameID.addTextChangedListener();
+
 
                 if (emailID.getText().toString().trim().equals("")) {
                     emailID.setError("Email is required!");
