@@ -10,6 +10,29 @@
       "StackName": "amplify-whiskers-dev-183925",
       "StackId": "arn:aws:cloudformation:us-east-1:957935758509:stack/amplify-whiskers-dev-183925/e9f9eb60-5aa0-11ec-b0ed-0e5d50560d99",
       "AmplifyAppId": "d4ugrnzr04lam"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      }
+    }
+  },
+  "wiskars": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-wiskars-44808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-wiskars-44808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-wiskars-44808-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whiskers-wiskars-44808-deployment",
+      "UnauthRoleName": "amplify-whiskers-wiskars-44808-unauthRole",
+      "StackName": "amplify-whiskers-wiskars-44808",
+      "StackId": "arn:aws:cloudformation:us-east-1:957935758509:stack/amplify-whiskers-wiskars-44808/f3e21490-5af5-11ec-9f98-129b0ebd9c57",
+      "AmplifyAppId": "d4ugrnzr04lam"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      }
     }
   }
 }
