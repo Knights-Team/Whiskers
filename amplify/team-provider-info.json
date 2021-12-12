@@ -52,5 +52,23 @@
         "whiskers08559da2": {}
       }
     }
+  },
+  "balqeesfin": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-balqeesfin-110110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::414211320575:role/amplify-whiskers-balqeesfin-110110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::414211320575:role/amplify-whiskers-balqeesfin-110110-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whiskers-balqeesfin-110110-deployment",
+      "UnauthRoleName": "amplify-whiskers-balqeesfin-110110-unauthRole",
+      "StackName": "amplify-whiskers-balqeesfin-110110",
+      "StackId": "arn:aws:cloudformation:us-east-1:414211320575:stack/amplify-whiskers-balqeesfin-110110/0f0c4860-5b2a-11ec-8b85-0a7afef9bd97",
+      "AmplifyAppId": "d6jmvw9al515z"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      }
+    }
   }
 }
