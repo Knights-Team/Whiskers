@@ -60,15 +60,15 @@ public class MainActivity extends AppCompatActivity {
         } catch (AmplifyException failure) {
             Log.e("Amplify", "Could not initialize Amplify", failure);
         }
-//        Amplify.Auth.fetchAuthSession(
-//                result -> {
-//                    if (result.isSignedIn()) handler.post(signedInRunnable);
-//
-//                     else handler.post(notSignedInRunnable);
-//                },
-//                error -> Log.e("Amplify", error.toString())
-//        );
-        startActivity(new Intent(this, Register.class));
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (result.isSignedIn()) handler.post(signedInRunnable);
+
+                     else handler.post(notSignedInRunnable);
+                },
+                error -> Log.e("Amplify", error.toString())
+        );
+
 
 
 
