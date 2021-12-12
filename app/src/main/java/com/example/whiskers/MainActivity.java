@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     final Runnable signedInRunnable = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(getApplicationContext(),Empty.class);
+            Intent intent = new Intent(getApplicationContext(),LandingPage.class);
             startActivity(intent);
             finish();
         }
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("Amplify", error.toString())
         );
+
 
 
 

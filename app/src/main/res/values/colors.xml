@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange_dark">#FF5403</color>
     <color name="input_gray">#F5F5F5</color>
+    <color name="light_orange">#FFA502</color>
 </resources>
