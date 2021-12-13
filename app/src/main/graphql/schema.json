@@ -1163,7 +1163,7 @@
                         "args": [],
                         "type": {
                             "kind": "SCALAR",
-                            "name": "AWSPhone",
+                            "name": "String",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -1319,16 +1319,6 @@
             {
                 "kind": "SCALAR",
                 "name": "AWSEmail",
-                "description": null,
-                "fields": null,
-                "inputFields": null,
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "SCALAR",
-                "name": "AWSPhone",
                 "description": null,
                 "fields": null,
                 "inputFields": null,
@@ -2150,7 +2140,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "AWSPhone",
+                            "name": "String",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2314,7 +2304,7 @@
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "AWSPhone",
+                            "name": "String",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -3291,6 +3281,16 @@
             {
                 "kind": "SCALAR",
                 "name": "AWSURL",
+                "description": null,
+                "fields": null,
+                "inputFields": null,
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "SCALAR",
+                "name": "AWSPhone",
                 "description": null,
                 "fields": null,
                 "inputFields": null,
