@@ -63,8 +63,8 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         android:src="@drawable/ic_settings" />
@@ -76,83 +76,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@id/rellay1"
-      android:orientation="horizontal">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@color/followersBg"
-        android:gravity="center"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
-
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:gravity="center_horizontal"
-          android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="453K"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="followers"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="13sp" />
-
-      </LinearLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@color/followingBg"
-        android:gravity="center"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
-
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:gravity="center_horizontal"
-          android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="873"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="following"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="13sp" />
-
-      </LinearLayout>
-
-    </RelativeLayout>
-
-  </LinearLayout>
+      android:orientation="horizontal"/>
 
 
   <RelativeLayout
@@ -165,8 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
         android:orientation="vertical">
 
       <LinearLayout
@@ -235,7 +159,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Twitter"
+            android:text="volunteer"
             android:textColor="@color/headings"
             android:textSize="13sp" />
 
@@ -243,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="@string/full_name"
+            android:text="@string/empty"
             android:textColor="#000000"
             android:textSize="18sp" />
 
@@ -264,7 +188,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Facebook"
+            android:text="volunteer"
             android:textColor="@color/headings"
             android:textSize="13sp" />
 
@@ -272,7 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="facebook.com/joeytrib"
+            android:text="isVolunteer"
             android:textColor="#000000"
             android:textSize="18sp" />
 
