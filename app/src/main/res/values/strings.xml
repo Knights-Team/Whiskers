@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Whiskers</string>
+    <string name="app_name"><b>Whiskers</b></string>
     <string name="logo">Whiskers</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -16,4 +16,13 @@
     <string name="login">Login</string>
     <string name="social_log_in">social log in</string>
     <string name="verify">Verify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="secondary_text">text</string>
+    <string name="supporting_text">text</string>
+    <string name="photo_of_the_animal">Photo of the animal</string>
+    <string name="profile">Profile</string>
+    <string name="view_profile">View Profile</string>
+    <string name="add_post">Add Post</string>
 </resources>

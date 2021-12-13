@@ -27,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
     Button getStarted;
     ProgressBar progressBar;
     Handler handler = new Handler();
+
     final Runnable signedInRunnable = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(getApplicationContext(),Empty.class);
+            Intent intent = new Intent(getApplicationContext(),LandingPage.class);
             startActivity(intent);
             finish();
         }
     };
-
 
 
     final Runnable notSignedInRunnable = new Runnable() {
@@ -78,6 +78,7 @@ Button button2=(Button) findViewById(R.id.button2);
                 startActivity(intent);
             }
         });
+
 
     }
 
