@@ -70,5 +70,47 @@
         "whiskers08559da2": {}
       }
     }
+  },
+  "ddd": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-ddd-111133-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-ddd-111133-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-ddd-111133-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whiskers-ddd-111133-deployment",
+      "UnauthRoleName": "amplify-whiskers-ddd-111133-unauthRole",
+      "StackName": "amplify-whiskers-ddd-111133",
+      "StackId": "arn:aws:cloudformation:us-east-1:957935758509:stack/amplify-whiskers-ddd-111133/ad6ea460-5bf4-11ec-a018-1256ec10c933",
+      "AmplifyAppId": "d4ugrnzr04lam"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      }
+    }
+  },
+  "wwww": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-wwww-114905-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-wwww-114905-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-wwww-114905-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-whiskers-wwww-114905-deployment",
+      "UnauthRoleName": "amplify-whiskers-wwww-114905-unauthRole",
+      "StackName": "amplify-whiskers-wwww-114905",
+      "StackId": "arn:aws:cloudformation:eu-west-1:957935758509:stack/amplify-whiskers-wwww-114905/ec0d9460-5bf9-11ec-8c02-06a02fffc52b",
+      "AmplifyAppId": "d2ao0js7fw1ywf"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      },
+      "function": {
+        "S3Trigger7713c221": {
+          "deploymentBucketName": "amplify-whiskers-wwww-114905-deployment",
+          "s3Key": "amplify-builds/S3Trigger7713c221-6d4e347645326b58666f-build.zip"
+        }
+      }
+    }
   }
 }
