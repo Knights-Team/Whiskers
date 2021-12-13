@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Whiskers">
         <activity
+                android:name=".LandingPage"
+                android:exported="false" />
+        <activity
                 android:name=".Empty"
                 android:exported="false" />
         <activity
