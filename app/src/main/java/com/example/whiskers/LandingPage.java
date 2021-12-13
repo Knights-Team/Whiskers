@@ -25,7 +25,7 @@ public class LandingPage extends AppCompatActivity {
         setContentView(R.layout.activity_landing_page);
 
         List<Post> posts = new ArrayList<>();
-        posts.add(Post.builder().location("aaaa").build());
+        posts.add(Post.builder().location("amman").title("sick cat").description("cat need help").build());
         posts.add(Post.builder().location("wwww").build());
         posts.add(Post.builder().location("wwww").build());
         posts.add(Post.builder().location("wwww").build());

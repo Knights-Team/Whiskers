@@ -30,6 +30,7 @@
 
                 <!-- Media -->
                 <ImageView
+                        android:id="@+id/fragImage"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
                         android:scaleType="centerInside"
@@ -45,12 +46,14 @@
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
+                            android:id="@+id/fragTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/title"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     <TextView
+                            android:id="@+id/fragLocation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -59,12 +62,19 @@
                             android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
+                            android:id="@+id/fragDescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:text="@string/supporting_text"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
+
+                    <Button
+                        android:id="@+id/detailsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Details" />
 
                 </LinearLayout>
 
