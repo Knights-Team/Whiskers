@@ -41,5 +41,11 @@ dependencies {
     implementation 'com.amplifyframework:aws-datastore:1.30.0'
     implementation 'com.amplifyframework:core:1.30.0'
     implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:26.1.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:percent:26.1.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:cardview-v7:26.1.0'
 
 }

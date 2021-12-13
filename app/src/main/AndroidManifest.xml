@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.example.whiskers">
+    package="com.example.whiskers" >
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.Whiskers">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Whiskers" >
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+     <activity
                 android:name=".LandingPage"
                 android:exported="false" />
         <activity
                 android:name=".Empty"
                 android:exported="false" />
         <activity
-                android:name=".EmailConfirmationActivity"
-                android:exported="false" />
+            android:name=".Empty"
+            android:exported="false" />
         <activity
-                android:name=".Login"
-                android:exported="false" />
+            android:name=".EmailConfirmationActivity"
+            android:exported="false" />
         <activity
-                android:name=".Register"
-                android:exported="false" />
+            android:name=".Login"
+            android:exported="false" />
         <activity
-                android:name=".MainActivity"
-                android:exported="true">
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
