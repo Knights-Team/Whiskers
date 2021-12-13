@@ -2,6 +2,7 @@
 subscription OnCreatePost {
   onCreatePost {
     id
+    title
     description
     image
     location
@@ -16,6 +17,7 @@ subscription OnCreatePost {
 subscription OnUpdatePost {
   onUpdatePost {
     id
+    title
     description
     image
     location
@@ -30,6 +32,7 @@ subscription OnUpdatePost {
 subscription OnDeletePost {
   onDeletePost {
     id
+    title
     description
     image
     location
@@ -44,7 +47,6 @@ subscription OnDeletePost {
 subscription OnCreateUser {
   onCreateUser {
     id
-    userName
     email
     fullName
     phoneNumber
@@ -52,6 +54,7 @@ subscription OnCreateUser {
     Posts {
       items {
         id
+        title
         description
         image
         location
@@ -75,7 +78,6 @@ subscription OnCreateUser {
 subscription OnUpdateUser {
   onUpdateUser {
     id
-    userName
     email
     fullName
     phoneNumber
@@ -83,6 +85,7 @@ subscription OnUpdateUser {
     Posts {
       items {
         id
+        title
         description
         image
         location
@@ -106,7 +109,6 @@ subscription OnUpdateUser {
 subscription OnDeleteUser {
   onDeleteUser {
     id
-    userName
     email
     fullName
     phoneNumber
@@ -114,6 +116,7 @@ subscription OnDeleteUser {
     Posts {
       items {
         id
+        title
         description
         image
         location

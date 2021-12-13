@@ -23,7 +23,7 @@ public class EmailConfirmationActivity extends AppCompatActivity {
     final Runnable SignUpRunnable = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(getApplicationContext(),Empty.class);
+            Intent intent = new Intent(getApplicationContext(),LandingPage.class);
             startActivity(intent);
             finish();
         }

@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     final Runnable logInRunnable = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(getApplicationContext(),Empty.class);
+            Intent intent = new Intent(getApplicationContext(),LandingPage.class);
             startActivity(intent);
             finish();
         }

@@ -27,11 +27,13 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @Index(name = "byUser", fields = {"userID"})
 public final class Post implements Model {
   public static final QueryField ID = field("Post", "id");
+  public static final QueryField TITLE = field("Post", "title");
   public static final QueryField DESCRIPTION = field("Post", "description");
   public static final QueryField IMAGE = field("Post", "image");
   public static final QueryField LOCATION = field("Post", "location");
   public static final QueryField USER_ID = field("Post", "userID");
   private final @ModelField(targetType="ID", isRequired = true) String id;
+  private final @ModelField(targetType="String") String title;
   private final @ModelField(targetType="String") String description;
   private final @ModelField(targetType="String") String image;
   private final @ModelField(targetType="String", isRequired = true) String location;
@@ -40,6 +42,10 @@ public final class Post implements Model {
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
+  }
+  
+  public String getTitle() {
+      return title;
   }
   
   public String getDescription() {
@@ -66,8 +72,9 @@ public final class Post implements Model {
       return updatedAt;
   }
   
-  private Post(String id, String description, String image, String location, String userID) {
+  private Post(String id, String title, String description, String image, String location, String userID) {
     this.id = id;
+    this.title = title;
     this.description = description;
     this.image = image;
     this.location = location;
@@ -83,6 +90,7 @@ public final class Post implements Model {
       } else {
       Post post = (Post) obj;
       return ObjectsCompat.equals(getId(), post.getId()) &&
+              ObjectsCompat.equals(getTitle(), post.getTitle()) &&
               ObjectsCompat.equals(getDescription(), post.getDescription()) &&
               ObjectsCompat.equals(getImage(), post.getImage()) &&
               ObjectsCompat.equals(getLocation(), post.getLocation()) &&
@@ -96,6 +104,7 @@ public final class Post implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
+      .append(getTitle())
       .append(getDescription())
       .append(getImage())
       .append(getLocation())
@@ -111,6 +120,7 @@ public final class Post implements Model {
     return new StringBuilder()
       .append("Post {")
       .append("id=" + String.valueOf(getId()) + ", ")
+      .append("title=" + String.valueOf(getTitle()) + ", ")
       .append("description=" + String.valueOf(getDescription()) + ", ")
       .append("image=" + String.valueOf(getImage()) + ", ")
       .append("location=" + String.valueOf(getLocation()) + ", ")
@@ -139,12 +149,14 @@ public final class Post implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
+      title,
       description,
       image,
       location,
@@ -158,6 +170,7 @@ public final class Post implements Model {
   public interface BuildStep {
     Post build();
     BuildStep id(String id);
+    BuildStep title(String title);
     BuildStep description(String description);
     BuildStep image(String image);
     BuildStep userId(String userId);
@@ -167,6 +180,7 @@ public final class Post implements Model {
   public static class Builder implements LocationStep, BuildStep {
     private String id;
     private String location;
+    private String title;
     private String description;
     private String image;
     private String userID;
@@ -176,6 +190,7 @@ public final class Post implements Model {
         
         return new Post(
           id,
+          title,
           description,
           image,
           location,
@@ -186,6 +201,12 @@ public final class Post implements Model {
      public BuildStep location(String location) {
         Objects.requireNonNull(location);
         this.location = location;
+        return this;
+    }
+    
+    @Override
+     public BuildStep title(String title) {
+        this.title = title;
         return this;
     }
     
@@ -219,9 +240,10 @@ public final class Post implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String description, String image, String location, String userId) {
+    private CopyOfBuilder(String id, String title, String description, String image, String location, String userId) {
       super.id(id);
       super.location(location)
+        .title(title)
         .description(description)
         .image(image)
         .userId(userId);
@@ -230,6 +252,11 @@ public final class Post implements Model {
     @Override
      public CopyOfBuilder location(String location) {
       return (CopyOfBuilder) super.location(location);
+    }
+    
+    @Override
+     public CopyOfBuilder title(String title) {
+      return (CopyOfBuilder) super.title(title);
     }
     
     @Override

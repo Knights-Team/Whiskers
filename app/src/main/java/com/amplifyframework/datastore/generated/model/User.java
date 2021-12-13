@@ -27,13 +27,11 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 })
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
-  public static final QueryField USER_NAME = field("User", "userName");
   public static final QueryField EMAIL = field("User", "email");
   public static final QueryField FULL_NAME = field("User", "fullName");
   public static final QueryField PHONE_NUMBER = field("User", "phoneNumber");
   public static final QueryField VOLUNTEER = field("User", "volunteer");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String userName;
   private final @ModelField(targetType="AWSEmail", isRequired = true) String email;
   private final @ModelField(targetType="String") String fullName;
   private final @ModelField(targetType="AWSPhone") String phoneNumber;
@@ -43,10 +41,6 @@ public final class User implements Model {
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
-  }
-  
-  public String getUserName() {
-      return userName;
   }
   
   public String getEmail() {
@@ -77,9 +71,8 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String userName, String email, String fullName, String phoneNumber, Boolean volunteer) {
+  private User(String id, String email, String fullName, String phoneNumber, Boolean volunteer) {
     this.id = id;
-    this.userName = userName;
     this.email = email;
     this.fullName = fullName;
     this.phoneNumber = phoneNumber;
@@ -95,7 +88,6 @@ public final class User implements Model {
       } else {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getUserName(), user.getUserName()) &&
               ObjectsCompat.equals(getEmail(), user.getEmail()) &&
               ObjectsCompat.equals(getFullName(), user.getFullName()) &&
               ObjectsCompat.equals(getPhoneNumber(), user.getPhoneNumber()) &&
@@ -109,7 +101,6 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getUserName())
       .append(getEmail())
       .append(getFullName())
       .append(getPhoneNumber())
@@ -125,7 +116,6 @@ public final class User implements Model {
     return new StringBuilder()
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("userName=" + String.valueOf(getUserName()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
       .append("fullName=" + String.valueOf(getFullName()) + ", ")
       .append("phoneNumber=" + String.valueOf(getPhoneNumber()) + ", ")
@@ -136,7 +126,7 @@ public final class User implements Model {
       .toString();
   }
   
-  public static UserNameStep builder() {
+  public static EmailStep builder() {
       return new Builder();
   }
   
@@ -154,24 +144,17 @@ public final class User implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      userName,
       email,
       fullName,
       phoneNumber,
       volunteer);
   }
-  public interface UserNameStep {
-    EmailStep userName(String userName);
-  }
-  
-
   public interface EmailStep {
     BuildStep email(String email);
   }
@@ -186,9 +169,8 @@ public final class User implements Model {
   }
   
 
-  public static class Builder implements UserNameStep, EmailStep, BuildStep {
+  public static class Builder implements EmailStep, BuildStep {
     private String id;
-    private String userName;
     private String email;
     private String fullName;
     private String phoneNumber;
@@ -199,18 +181,10 @@ public final class User implements Model {
         
         return new User(
           id,
-          userName,
           email,
           fullName,
           phoneNumber,
           volunteer);
-    }
-    
-    @Override
-     public EmailStep userName(String userName) {
-        Objects.requireNonNull(userName);
-        this.userName = userName;
-        return this;
     }
     
     @Override
@@ -250,18 +224,12 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userName, String email, String fullName, String phoneNumber, Boolean volunteer) {
+    private CopyOfBuilder(String id, String email, String fullName, String phoneNumber, Boolean volunteer) {
       super.id(id);
-      super.userName(userName)
-        .email(email)
+      super.email(email)
         .fullName(fullName)
         .phoneNumber(phoneNumber)
         .volunteer(volunteer);
-    }
-    
-    @Override
-     public CopyOfBuilder userName(String userName) {
-      return (CopyOfBuilder) super.userName(userName);
     }
     
     @Override

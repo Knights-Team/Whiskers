@@ -60,14 +60,14 @@
         android:textSize="14sp" />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_settings" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_settings" />
 
   </RelativeLayout>
 
@@ -94,30 +94,30 @@
         android:orientation="vertical">
 
       <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="@color/headings"
-            android:textSize="13sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="joey@sharenofood.com"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="joey@sharenofood.com"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/grey" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/grey" />
 
       </LinearLayout>
 
@@ -150,34 +150,34 @@
 
       </LinearLayout>
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="15dp"
-          android:orientation="vertical">
+<!--      <LinearLayout-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:layout_marginTop="15dp"-->
+<!--          android:orientation="vertical">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="volunteer"
-            android:textColor="@color/headings"
-            android:textSize="13sp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="volunteer"-->
+<!--            android:textColor="@color/headings"-->
+<!--            android:textSize="13sp" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/empty"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="sans-serif-light"-->
+<!--            android:text="@string/empty"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="18sp" />-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/grey" />
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:background="@color/grey" />-->
 
-      </LinearLayout>
+<!--      </LinearLayout>-->
 
       <LinearLayout
           android:layout_width="match_parent"

@@ -88,7 +88,6 @@ public class Register extends AppCompatActivity {
 
     private void newUser(String userName, String email, String fullName, String phoneNumber) {
         User item = User.builder()
-                .userName(userName)
                 .email(email)
                 .fullName(fullName)
                 .phoneNumber(phoneNumber)
@@ -96,7 +95,7 @@ public class Register extends AppCompatActivity {
                 .build();
         Amplify.DataStore.save(
                 item,
-                success -> Log.i("Amplify", "Saved item: " + success.item().getUserName()),
+                success -> Log.i("Amplify", "Saved item: " + success.item().getEmail()),
                 error -> Log.e("Amplify", "Could not save item to DataStore", error)
         );
         startActivity(new Intent(Register.this, EmailConfirmationActivity.class));

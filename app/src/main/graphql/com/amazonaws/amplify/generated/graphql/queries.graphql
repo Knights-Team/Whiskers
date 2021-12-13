@@ -2,6 +2,7 @@
 query GetPost($id: ID!) {
   getPost(id: $id) {
     id
+    title
     description
     image
     location
@@ -21,6 +22,7 @@ query ListPosts(
   listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      title
       description
       image
       location
@@ -49,6 +51,7 @@ query SyncPosts(
   ) {
     items {
       id
+      title
       description
       image
       location
@@ -66,7 +69,6 @@ query SyncPosts(
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    userName
     email
     fullName
     phoneNumber
@@ -74,6 +76,7 @@ query GetUser($id: ID!) {
     Posts {
       items {
         id
+        title
         description
         image
         location
@@ -102,7 +105,6 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      userName
       email
       fullName
       phoneNumber
@@ -135,7 +137,6 @@ query SyncUsers(
   ) {
     items {
       id
-      userName
       email
       fullName
       phoneNumber
