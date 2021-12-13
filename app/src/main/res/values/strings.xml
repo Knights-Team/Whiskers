@@ -25,4 +25,6 @@
     <string name="profile">Profile</string>
     <string name="view_profile">View Profile</string>
     <string name="add_post">Add Post</string>
+    <string name="start">Start</string>
+    <string name="stop_location">stop location</string>
 </resources>
