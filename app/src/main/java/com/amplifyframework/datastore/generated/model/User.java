@@ -34,7 +34,7 @@ public final class User implements Model {
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="AWSEmail", isRequired = true) String email;
   private final @ModelField(targetType="String") String fullName;
-  private final @ModelField(targetType="AWSPhone") String phoneNumber;
+  private final @ModelField(targetType="String") String phoneNumber;
   private final @ModelField(targetType="Boolean") Boolean volunteer;
   private final @ModelField(targetType="Post") @HasMany(associatedWith = "userID", type = Post.class) List<Post> Posts = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
