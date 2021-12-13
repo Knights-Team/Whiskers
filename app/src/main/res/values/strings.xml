@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Whiskers</string>
+    <string name="app_name"><b>Whiskers</b></string>
     <string name="logo">Whiskers</string>
     <string name="username">Username</string>
     <string name="password">Password</string>

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button getStarted;
     ProgressBar progressBar;
     Handler handler = new Handler();
+
     final Runnable signedInRunnable = new Runnable() {
         @Override
         public void run() {
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     };
-
 
 
     final Runnable notSignedInRunnable = new Runnable() {
