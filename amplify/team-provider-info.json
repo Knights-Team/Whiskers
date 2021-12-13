@@ -53,6 +53,7 @@
       }
     }
   },
+
   "mosawhis": {
     "awscloudformation": {
       "AuthRoleName": "amplify-whiskers-mosawhis-104132-authRole",
@@ -64,6 +65,7 @@
       "StackName": "amplify-whiskers-mosawhis-104132",
       "StackId": "arn:aws:cloudformation:us-east-2:987411968625:stack/amplify-whiskers-mosawhis-104132/521a4bf0-5b27-11ec-9dc1-02bd3c7f8164",
       "AmplifyAppId": "d78xxgky49xbo"
+
     },
     "categories": {
       "auth": {
