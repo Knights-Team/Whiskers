@@ -19,7 +19,6 @@
             android:name=".AddPost"
             android:exported="true" />
         <activity
-        <activity
             android:name=".Location"
             android:exported="false" />
         <activity

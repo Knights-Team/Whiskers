@@ -3,9 +3,14 @@ package com.example.whiskers;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +28,8 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Post;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,12 +39,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 @RequiresApi(api = Build.VERSION_CODES.Q)
 public class AddPost extends AppCompatActivity {
+    private FusedLocationProviderClient fusedLocationClient;
+    private static final int REQUEST_CODE_LOCATION_PERMISSION=1;
     String fileName;
     Uri dataUri;
     private static final int CODE_REQUEST =55 ;
     private static final String TAG = "upload";
     private String fileType;
     private File uploadFile;
+    private String location;
     EditText new_post_title;
     EditText new_post_desc;
     String imgSrc;
@@ -49,6 +59,27 @@ public class AddPost extends AppCompatActivity {
         AuthUser authUser = Amplify.Auth.getCurrentUser();
         String id =authUser.getUserId();
         Button addPost=findViewById(R.id.post_btn);
+
+        Button locationButton = findViewById(R.id.getLocation);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(
+                        getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED){
+
+                    ActivityCompat.requestPermissions(
+                            AddPost.this,
+                            new String[]{ Manifest.permission.ACCESS_FINE_LOCATION},
+                            REQUEST_CODE_LOCATION_PERMISSION
+                    );
+                }else{
+                    locationButton.setText(AddPost.this.location);
+                }
+            }
+
+
+        });
         addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,12 +90,13 @@ public class AddPost extends AppCompatActivity {
 //              uploadFile();
                 Post post = Post.builder()
                 .title(getinputTitle)
-                        .location("amman")
+                        .location(location != null ? location: "No Location")
                         .description(getinputDec)
 //                       .image(fileName)
                         .userId(id)
                         .build();
                 saveToAPI(post);
+                finish();
             }
         });
         Button pickFileButton = findViewById(R.id.upload);
@@ -79,6 +111,27 @@ public class AddPost extends AppCompatActivity {
                                           }
 
         );
+
+
+
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    // Got last known location. In some rare situations this can be null.
+                    this.location = location.getLatitude()+","+location.getLongitude();
+                    Toast.makeText(this, "Location was added", Toast.LENGTH_LONG).show();
+                });
     }
 
 
@@ -91,9 +144,10 @@ public class AddPost extends AppCompatActivity {
 
 
     public void saveToAPI(Post post){
-        Amplify.API.mutate(ModelMutation.create(post),
-                success -> Log.i("Tutorial", "Saved item: " + success.getData()),
-                error -> Log.e("Tutorial", "Could not save item to API", error)
+        Amplify.DataStore.save(
+                post,
+                success -> Log.i("Amplify", "Saved item: " + success.item().getTitle()),
+                error -> Log.e("Amplify", "Could not save item to DataStore", error)
         );
     }
     @SuppressLint("IntentReset")

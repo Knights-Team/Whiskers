@@ -40,15 +40,14 @@ public class LocationService extends Service {
         @Override
         public void onLocationResult(@NonNull LocationResult locationResult) {
             super.onLocationResult(locationResult);
-            if (locationResult != null && locationResult.getLastLocation() != null) {
-                double latitude = locationResult.getLastLocation().getLatitude();
-                double longtiude = locationResult.getLastLocation().getLongitude();
+            locationResult.getLastLocation();
+            double latitude = locationResult.getLastLocation().getLatitude();
+            double longtiude = locationResult.getLastLocation().getLongitude();
 
 
-               setLocation( latitude + ", " + longtiude);
+            setLocation( latitude + ", " + longtiude);
 
 
-            }
         }
     };
 
