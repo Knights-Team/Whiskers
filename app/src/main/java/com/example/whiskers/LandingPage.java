@@ -38,8 +38,8 @@ public class LandingPage extends AppCompatActivity {
         });
 
         List<Post> posts = new ArrayList<>();
-        posts.add(Post.builder().title("tttt").location("aaaa").build());
-        posts.add(Post.builder().title("wwwwww").location("wwww").build());
+        posts.add(Post.builder().location("amman").title("sick cat").description("cat need help").build());
+        posts.add(Post.builder().title("wwwwww").description("cat need help").location("wwww").build());
         posts.add(Post.builder().title("eeee").location("wwww").build());
         posts.add(Post.builder().title("eeee").location("wwww").build());
         posts.add(Post.builder().title("eeee").location("wwww").build());
