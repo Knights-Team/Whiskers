@@ -80,7 +80,7 @@
 
         <Button
                 android:visibility="gone"
-                android:id="@+id/getStartedButton"
+                android:id="@+id/becomeAVolunteer"
                 android:layout_width="230dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="56dp"

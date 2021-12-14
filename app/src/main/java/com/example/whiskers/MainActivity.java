@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.amplifyframework.AmplifyException;
@@ -19,7 +17,7 @@ import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
-import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -50,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getStarted = findViewById(R.id.getStartedButton);
+        getStarted = findViewById(R.id.becomeAVolunteer);
         progressBar = findViewById(R.id.progressBar);
         try {
+//            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSDataStorePlugin());

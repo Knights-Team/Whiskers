@@ -89,6 +89,35 @@
       }
     }
   },
+  "qutadah": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-qutadah-30659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-qutadah-30659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-qutadah-30659-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-whiskers-qutadah-30659-deployment",
+      "UnauthRoleName": "amplify-whiskers-qutadah-30659-unauthRole",
+      "StackName": "amplify-whiskers-qutadah-30659",
+      "StackId": "arn:aws:cloudformation:eu-west-1:957935758509:stack/amplify-whiskers-qutadah-30659/26e5c280-5c7a-11ec-a766-02572c10e7b1",
+      "AmplifyAppId": "d3h19cqjcumll9"
+    },
+    "categories": {
+      "auth": {
+        "whiskers08559da2": {}
+      }
+    }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-test-32348-authRole",
+      "UnauthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-test-32348-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::957935758509:role/amplify-whiskers-test-32348-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-whiskers-test-32348-deployment",
+      "UnauthRoleName": "amplify-whiskers-test-32348-unauthRole",
+      "StackName": "amplify-whiskers-test-32348",
+      "StackId": "arn:aws:cloudformation:eu-west-1:957935758509:stack/amplify-whiskers-test-32348/7f12a070-5c7c-11ec-8746-065e559f07f1",
+      "AmplifyAppId": "d3h19cqjcumll9"
   "balqeesend": {
     "awscloudformation": {
       "AuthRoleName": "amplify-whiskers-balqeesend-174816-authRole",
