@@ -1,6 +1,6 @@
 type Post @model @auth(rules: [{allow: public}]) {
   id: ID!
-  title: String
+  title: String!
   description: String
   image: String
   location: String!
