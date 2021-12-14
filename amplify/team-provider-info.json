@@ -118,6 +118,17 @@
       "StackName": "amplify-whiskers-test-32348",
       "StackId": "arn:aws:cloudformation:eu-west-1:957935758509:stack/amplify-whiskers-test-32348/7f12a070-5c7c-11ec-8746-065e559f07f1",
       "AmplifyAppId": "d3h19cqjcumll9"
+  "balqeesend": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiskers-balqeesend-174816-authRole",
+      "UnauthRoleArn": "arn:aws:iam::414211320575:role/amplify-whiskers-balqeesend-174816-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::414211320575:role/amplify-whiskers-balqeesend-174816-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whiskers-balqeesend-174816-deployment",
+      "UnauthRoleName": "amplify-whiskers-balqeesend-174816-unauthRole",
+      "StackName": "amplify-whiskers-balqeesend-174816",
+      "StackId": "arn:aws:cloudformation:us-east-1:414211320575:stack/amplify-whiskers-balqeesend-174816/18272de0-5c2c-11ec-90ab-0ae4e4ccaef9",
+      "AmplifyAppId": "d6jmvw9al515z"
     },
     "categories": {
       "auth": {

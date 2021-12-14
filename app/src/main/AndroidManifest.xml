@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.whiskers">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,17 +15,23 @@
         <activity
             android:name=".editProfile"
             android:exported="false" />
+      <activity
+            android:name=".DetailsPage"
+            android:exported="true" />
+      <activity
+            android:name=".AddPost"
+            android:exported="true" />
         <activity
-            android:name=".Profile"
+            android:name=".Location"
             android:exported="false" />
         <activity
             android:name=".LandingPage"
             android:exported="false" />
         <activity
-            android:name=".Empty"
+            android:name=".Profile"
             android:exported="false" />
         <activity
-            android:name=".Empty"
+            android:name=".LandingPage"
             android:exported="false" />
         <activity
             android:name=".EmailConfirmationActivity"
@@ -43,9 +52,13 @@
             </intent-filter>
         </activity>
 
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-    </application>
 
+        <service android:name=".LocationService"
+            android:enabled="true"
+            android:exported="false"/>
+    </application>
 </manifest>

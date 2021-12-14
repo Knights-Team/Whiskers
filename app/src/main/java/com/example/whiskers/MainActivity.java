@@ -22,6 +22,7 @@ import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 public class MainActivity extends AppCompatActivity {
 
+
     Button getStarted;
     ProgressBar progressBar;
     Handler handler = new Handler();
@@ -69,7 +70,14 @@ public class MainActivity extends AppCompatActivity {
         );
 
 
+
     }
+
+
+
+
+
+
 
     public void getStarted(View view) {
         Intent intent = new Intent(this,Login.class);

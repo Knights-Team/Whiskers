@@ -1,8 +1,11 @@
 package com.example.whiskers;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +44,33 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         holder.post = posts.get(position);
+
+       // TextView image = holder.itemView.findViewById(R.id.fragImage);
+        TextView title = holder.itemView.findViewById(R.id.fragTitle);
+        TextView location = holder.itemView.findViewById(R.id.fragLocation);
+        TextView description = holder.itemView.findViewById(R.id.fragDescription);
+        Button goToDetails =holder.itemView.findViewById(R.id.detailsBtn);
+
+       // image.setText(holder.post.getTitle());
+        title.setText(holder.post.getTitle());
+        location.setText(holder.post.getLocation());
+        description.setText(holder.post.getDescription());
+
+        goToDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent goToDetailsPage=new Intent(view.getContext(),DetailsPage.class);
+                //goToDetailsPage.putExtra("image",holder.post.getImage());
+                goToDetailsPage.putExtra("title",holder.post.getTitle());
+                goToDetailsPage.putExtra("location",holder.post.getLocation());
+                goToDetailsPage.putExtra("description",holder.post.getDescription());
+
+                view.getContext().startActivity(goToDetailsPage);
+
+            }
+        });
+
     }
 
     @Override
