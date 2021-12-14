@@ -118,6 +118,8 @@
       "StackName": "amplify-whiskers-test-32348",
       "StackId": "arn:aws:cloudformation:eu-west-1:957935758509:stack/amplify-whiskers-test-32348/7f12a070-5c7c-11ec-8746-065e559f07f1",
       "AmplifyAppId": "d3h19cqjcumll9"
+    }
+  },
   "balqeesend": {
     "awscloudformation": {
       "AuthRoleName": "amplify-whiskers-balqeesend-174816-authRole",
