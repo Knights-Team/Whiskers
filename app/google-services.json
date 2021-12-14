@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "39079737900",
+    "project_id": "whiskers-42e59",
+    "storage_bucket": "whiskers-42e59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39079737900:android:a821eb34e991d50e29ef89",
+        "android_client_info": {
+          "package_name": "com.example.whiskers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39079737900-bd56ma3nscfdfhtscaaf7rpsil7n9uoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaoJSWLWd0_Aug_Z9SJSXPEo6jA6PL6WE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39079737900-bd56ma3nscfdfhtscaaf7rpsil7n9uoc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

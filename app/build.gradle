@@ -29,7 +29,11 @@ android {
 }
 
 dependencies {
-
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation platform ('com.google.firebase:firebase-bom:29.0.2')
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+//    implementation 'com.google.firebase:firebase-admin:8.1.0'
+    implementation 'com.google.firebase:firebase-analytics:20.0.1'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
@@ -39,8 +43,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.amplifyframework:aws-api:1.30.0'
     implementation 'com.amplifyframework:aws-datastore:1.30.0'
-    implementation 'com.amplifyframework:core:1.30.0'
-    implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
+    implementation 'com.amplifyframework:core:1.31.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.31.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:26.1.0'
     //noinspection GradleCompatible
@@ -52,3 +56,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:19.0.0'
 
 }
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'

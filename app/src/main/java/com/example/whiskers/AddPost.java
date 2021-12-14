@@ -11,6 +11,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,6 +39,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 @RequiresApi(api = Build.VERSION_CODES.Q)
 public class AddPost extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
@@ -129,8 +134,15 @@ public class AddPost extends AppCompatActivity {
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> {
                     // Got last known location. In some rare situations this can be null.
-                    this.location = location.getLatitude()+","+location.getLongitude();
-                    Toast.makeText(this, "Location was added", Toast.LENGTH_LONG).show();
+                    try {
+                    Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                    List<Address> addresses = null;
+                        addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                        this.location = addresses.get(0).getAddressLine(0);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 });
     }
 
