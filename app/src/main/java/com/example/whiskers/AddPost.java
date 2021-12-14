@@ -5,22 +5,27 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.text.HtmlCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileUtils;
 import android.provider.MediaStore;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +33,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Post;
+import com.amplifyframework.datastore.generated.model.User;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
@@ -35,6 +41,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -42,7 +50,8 @@ public class AddPost extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private static final int REQUEST_CODE_LOCATION_PERMISSION=1;
     String fileName;
-    Uri dataUri;
+    Uri uri;
+    String id;
     private static final int CODE_REQUEST =55 ;
     private static final String TAG = "upload";
     private String fileType;
@@ -57,7 +66,20 @@ public class AddPost extends AppCompatActivity {
         setContentView(R.layout.activity_add_post);
 
         AuthUser authUser = Amplify.Auth.getCurrentUser();
-        String id =authUser.getUserId();
+        String email =authUser.getUsername();
+        Amplify.DataStore.query(
+                User.class,
+                items -> {
+                    while (items.hasNext()) {
+                        User item = items.next();
+                        if (item.getEmail().equals(email))
+                            id=item.getId();
+                        System.out.println(id);
+                        Log.i("Amplify", "Id " + item.getId());
+                    }
+                },
+                failure -> Log.e("Amplify", "Could not query DataStore", failure)
+        );
         Button addPost=findViewById(R.id.post_btn);
 
         Button locationButton = findViewById(R.id.getLocation);
@@ -87,16 +109,17 @@ public class AddPost extends AppCompatActivity {
                 EditText new_post_desc=findViewById(R.id.new_post_desc);
                 String getinputTitle = new_post_title.getText().toString();
                 String getinputDec = new_post_desc.getText().toString();
-//              uploadFile();
+
+
                 Post post = Post.builder()
                 .title(getinputTitle)
                         .location(location != null ? location: "No Location")
                         .description(getinputDec)
-//                       .image(fileName)
+                        .image(fileName)
                         .userId(id)
                         .build();
                 saveToAPI(post);
-                finish();
+//                finish();
             }
         });
         Button pickFileButton = findViewById(R.id.upload);
@@ -104,6 +127,8 @@ public class AddPost extends AppCompatActivity {
                                               @Override
                                               public void onClick(View v) {
                                                   pickFile();
+//                                                  getFile();
+
                                                   Toast.makeText(AddPost.this, "pick", Toast.LENGTH_SHORT).show();
 
                                               }
@@ -111,7 +136,6 @@ public class AddPost extends AppCompatActivity {
                                           }
 
         );
-
 
 
 
@@ -132,13 +156,51 @@ public class AddPost extends AppCompatActivity {
                     this.location = location.getLatitude()+","+location.getLongitude();
                     Toast.makeText(this, "Location was added", Toast.LENGTH_LONG).show();
                 });
+
+
+
     }
 
 
+//    @SuppressLint("SimpleDateFormat")
+//    @RequiresApi(api = Build.VERSION_CODES.Q)
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//
+//    }
 
 
+public void Displayphoto(){
 
+    ImageView imageView = findViewById(R.id.new_post_image);
+    Amplify.Storage.downloadFile(
+            fileName,
+            new File(getApplicationContext().getFilesDir() +"/"+ fileName),
+            result -> {
+                Log.i("MyAmplifyApp", "Successfully downloaded: " + result.getFile().getPath());
+                String fileType = null;
 
+                try {
+                    fileType = Files.probeContentType(result.getFile().toPath());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                if (fileType.split("/")[0].equals("image")){
+                    imageView.setImageBitmap(BitmapFactory.decodeFile(result.getFile().getPath()));
+                }
+                else {
+                    String linkedText = String.format("<a href=\"%s\">download File</a> ", uri);
+                    TextView test = findViewById(R.id.imgSrc);
+                    test.setText(Html.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+                    test.setMovementMethod(LinkMovementMethod.getInstance());
+                }
+            },
+            error -> Log.e("MyAmplifyApp",  "Download Failure ",error)
+    );
+}
 
 
 
@@ -152,20 +214,19 @@ public class AddPost extends AppCompatActivity {
     }
     @SuppressLint("IntentReset")
     private  void  pickFile(){
-        @SuppressLint("IntentReset") Intent selecteFile = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        @SuppressLint("IntentReset")  Intent selecteFile = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         selecteFile.setType(("*/*"));
         selecteFile=Intent.createChooser(selecteFile,"Select File");
         startActivityForResult(selecteFile,1234);
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onActivityResult(int requesstCode,int resultCode, @Nullable Intent data) {
         super.onActivityResult(requesstCode, resultCode, data);
         assert data != null;
-        dataUri = data.getData();
-        Uri uri = data.getData();
+//        dataUri = data.getData();
+         uri = data.getData();
 
         String src = uri.getPath();
         fileType = getContentResolver().getType(uri);
@@ -178,23 +239,27 @@ public class AddPost extends AppCompatActivity {
         try {
             InputStream inputStream = getContentResolver().openInputStream(data.getData());
             FileUtils.copy(inputStream, new FileOutputStream(uploadFile));
+            uploadFile();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-//    private void uploadFile(){
-//        Amplify.Storage.uploadFile(
-//                fileName,
-//                uploadFile,
-//                success -> {
-//                    Log.i(TAG, "uploadFileToS3: succeeded " + success.getKey());
-//                },
-//                error -> {
-//                    Log.e(TAG, "uploadFileToS3: failed " + error.toString());
-//                }
-//        );
-//    }
+    private void uploadFile(){
+        System.out.println(fileName);
+        System.out.println(uploadFile);
+        Amplify.Storage.uploadFile(
+                fileName,
+                uploadFile,
+                success -> {
+                    Log.i(TAG, "uploadFileToS3: succeeded " + success.getKey());
+                },
+                error -> {
+                    Log.e(TAG, "uploadFileToS3: failed " + error.toString());
+                }
+        );
+
+    }
 
 }
