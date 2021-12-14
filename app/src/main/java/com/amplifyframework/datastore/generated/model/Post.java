@@ -33,7 +33,7 @@ public final class Post implements Model {
   public static final QueryField LOCATION = field("Post", "location");
   public static final QueryField USER_ID = field("Post", "userID");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String") String title;
+  private final @ModelField(targetType="String", isRequired = true) String title;
   private final @ModelField(targetType="String") String description;
   private final @ModelField(targetType="String") String image;
   private final @ModelField(targetType="String", isRequired = true) String location;
@@ -131,7 +131,7 @@ public final class Post implements Model {
       .toString();
   }
   
-  public static LocationStep builder() {
+  public static TitleStep builder() {
       return new Builder();
   }
   
@@ -162,6 +162,11 @@ public final class Post implements Model {
       location,
       userID);
   }
+  public interface TitleStep {
+    LocationStep title(String title);
+  }
+  
+
   public interface LocationStep {
     BuildStep location(String location);
   }
@@ -170,17 +175,16 @@ public final class Post implements Model {
   public interface BuildStep {
     Post build();
     BuildStep id(String id);
-    BuildStep title(String title);
     BuildStep description(String description);
     BuildStep image(String image);
     BuildStep userId(String userId);
   }
   
 
-  public static class Builder implements LocationStep, BuildStep {
+  public static class Builder implements TitleStep, LocationStep, BuildStep {
     private String id;
-    private String location;
     private String title;
+    private String location;
     private String description;
     private String image;
     private String userID;
@@ -198,15 +202,16 @@ public final class Post implements Model {
     }
     
     @Override
-     public BuildStep location(String location) {
-        Objects.requireNonNull(location);
-        this.location = location;
+     public LocationStep title(String title) {
+        Objects.requireNonNull(title);
+        this.title = title;
         return this;
     }
     
     @Override
-     public BuildStep title(String title) {
-        this.title = title;
+     public BuildStep location(String location) {
+        Objects.requireNonNull(location);
+        this.location = location;
         return this;
     }
     
@@ -242,21 +247,21 @@ public final class Post implements Model {
   public final class CopyOfBuilder extends Builder {
     private CopyOfBuilder(String id, String title, String description, String image, String location, String userId) {
       super.id(id);
-      super.location(location)
-        .title(title)
+      super.title(title)
+        .location(location)
         .description(description)
         .image(image)
         .userId(userId);
     }
     
     @Override
-     public CopyOfBuilder location(String location) {
-      return (CopyOfBuilder) super.location(location);
+     public CopyOfBuilder title(String title) {
+      return (CopyOfBuilder) super.title(title);
     }
     
     @Override
-     public CopyOfBuilder title(String title) {
-      return (CopyOfBuilder) super.title(title);
+     public CopyOfBuilder location(String location) {
+      return (CopyOfBuilder) super.location(location);
     }
     
     @Override
