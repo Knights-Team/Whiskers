@@ -65,7 +65,6 @@ Context context;
         ImageView image = holder.itemView.findViewById(R.id.fragImage);
         TextView title = holder.itemView.findViewById(R.id.fragTitle);
         TextView location = holder.itemView.findViewById(R.id.fragLocation);
-        TextView description = holder.itemView.findViewById(R.id.fragDescription);
         Button goToDetails =holder.itemView.findViewById(R.id.detailsBtn);
         String fileName =holder.post.getImage();
 
@@ -107,7 +106,6 @@ Context context;
         );
         title.setText(holder.post.getTitle());
         location.setText(holder.post.getLocation());
-        description.setText(holder.post.getDescription());
 
         goToDetails.setOnClickListener(new View.OnClickListener() {
             @Override

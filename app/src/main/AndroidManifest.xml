@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.whiskers">
+        package="com.example.whiskers">
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
@@ -8,49 +9,43 @@
 
 
     <uses-permission android:name="android.permission.CAMERA"> </uses-permission>
-
-
-
-
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Whiskers">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.Whiskers">
         <activity
-            android:name=".editProfile"
-            android:exported="false" />
-      <activity
-            android:name=".DetailsPage"
-            android:exported="true" />
-      <activity
-            android:name=".AddPost"
-            android:exported="true" />
+                android:name=".editProfile"
+                android:exported="false" />
         <activity
-            android:name=".Location"
-            android:exported="false" />
+                android:name=".DetailsPage"
+                android:exported="true" />
         <activity
-            android:name=".LandingPage"
-            android:exported="false" />
+                android:name=".AddPost"
+                android:exported="true" />
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-
+                android:name=".Location"
+                android:exported="false" />
         <activity
-            android:name=".EmailConfirmationActivity"
-            android:exported="false" />
+                android:name=".LandingPage"
+                android:exported="false" />
         <activity
-            android:name=".Login"
-            android:exported="false" />
+                android:name=".Profile"
+                android:exported="false" />
         <activity
-            android:name=".Register"
-            android:exported="false" />
+                android:name=".EmailConfirmationActivity"
+                android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-
+                android:name=".Login"
+                android:exported="false" />
+        <activity
+                android:name=".Register"
+                android:exported="false" />
+        <activity
+                android:name=".MainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,11 +55,21 @@
 
 
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
 
-        <service android:name=".LocationService"
-            android:enabled="true"
-            android:exported="false"/>
+        <service
+                android:name=".LocationService"
+                android:enabled="true"
+                android:exported="false" />
+
+        <service
+                android:name=".MyFirebaseMessagingService"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
 </manifest>
