@@ -37,9 +37,7 @@
         <activity
             android:name=".Profile"
             android:exported="false" />
-        <activity
-            android:name=".LandingPage"
-            android:exported="false" />
+
         <activity
             android:name=".EmailConfirmationActivity"
             android:exported="false" />
@@ -52,6 +50,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
