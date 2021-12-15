@@ -129,9 +129,12 @@ public class AddPost extends AppCompatActivity {
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> {
                     // Got last known location. In some rare situations this can be null.
-                    this.location = location.getLatitude()+","+location.getLongitude();
-                    Toast.makeText(this, "Location was added", Toast.LENGTH_LONG).show();
+                    if(location != null) {
+                        this.location = location.getLatitude() + "," + location.getLongitude();
+                        Toast.makeText(this, "Location was added", Toast.LENGTH_LONG).show();
+                    }
                 });
+
     }
 
 

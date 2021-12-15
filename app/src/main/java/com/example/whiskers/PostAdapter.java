@@ -65,6 +65,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                 goToDetailsPage.putExtra("title",holder.post.getTitle());
                 goToDetailsPage.putExtra("location",holder.post.getLocation());
                 goToDetailsPage.putExtra("description",holder.post.getDescription());
+                goToDetailsPage.putExtra("id",holder.post.getId());
 
                 view.getContext().startActivity(goToDetailsPage);
 

@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3balqees",
+  "policyUUID": "4db8e7ed",
+  "bucketName": "whiskerbalqeesbuket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
