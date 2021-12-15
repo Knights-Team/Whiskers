@@ -42,6 +42,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,6 +51,9 @@ public class AddPost extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private static final int REQUEST_CODE_LOCATION_PERMISSION=1;
     String fileName;
+    String fileName2;
+    private URL url2;
+
     Uri uri;
     String id;
     private static final int CODE_REQUEST =55 ;
@@ -62,6 +66,8 @@ public class AddPost extends AppCompatActivity {
     String imgSrc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
 
@@ -119,6 +125,42 @@ public class AddPost extends AppCompatActivity {
                         .userId(id)
                         .build();
                 saveToAPI(post);
+                Amplify.Storage.getUrl(
+                        fileName,
+                        result -> {
+                            Log.i("MyAmplifyApp", "Successfully generated: " + result.getUrl());
+                            url2= result.getUrl();
+
+                        },
+                        error -> Log.e("MyAmplifyApp", "URL generation failure", error)
+                );
+
+                ImageView imageView = findViewById(R.id.new_post_image);
+                Amplify.Storage.downloadFile(
+                        fileName,
+                        new File(getApplicationContext().getFilesDir() +"/"+ fileName),
+                        result -> {
+                            Log.i("MyAmplifyApp", "Successfully downloaded: " + result.getFile().getPath());
+                            String fileType = null;
+
+                            try {
+                                fileType = Files.probeContentType(result.getFile().toPath());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            if (fileType.split("/")[0].equals("image")){
+                                imageView.setImageBitmap(BitmapFactory.decodeFile(result.getFile().getPath()));
+                            }
+                            else {
+                                String linkedText = String.format("<a href=\"%s\">download File</a> ", uri);
+                                TextView test = findViewById(R.id.imgSrc);
+                                test.setText(Html.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+                                test.setMovementMethod(LinkMovementMethod.getInstance());
+                            }
+                        },
+                        error -> Log.e("MyAmplifyApp",  "Download Failure ",error)
+                );
 //                finish();
             }
         });
@@ -126,9 +168,9 @@ public class AddPost extends AppCompatActivity {
         pickFileButton.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
+//                                                  Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+//                                                  startActivity(intent);
                                                   pickFile();
-//                                                  getFile();
-
                                                   Toast.makeText(AddPost.this, "pick", Toast.LENGTH_SHORT).show();
 
                                               }
@@ -159,6 +201,8 @@ public class AddPost extends AppCompatActivity {
 
 
 
+
+
     }
 
 
@@ -172,35 +216,7 @@ public class AddPost extends AppCompatActivity {
 //    }
 
 
-public void Displayphoto(){
 
-    ImageView imageView = findViewById(R.id.new_post_image);
-    Amplify.Storage.downloadFile(
-            fileName,
-            new File(getApplicationContext().getFilesDir() +"/"+ fileName),
-            result -> {
-                Log.i("MyAmplifyApp", "Successfully downloaded: " + result.getFile().getPath());
-                String fileType = null;
-
-                try {
-                    fileType = Files.probeContentType(result.getFile().toPath());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                if (fileType.split("/")[0].equals("image")){
-                    imageView.setImageBitmap(BitmapFactory.decodeFile(result.getFile().getPath()));
-                }
-                else {
-                    String linkedText = String.format("<a href=\"%s\">download File</a> ", uri);
-                    TextView test = findViewById(R.id.imgSrc);
-                    test.setText(Html.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
-                    test.setMovementMethod(LinkMovementMethod.getInstance());
-                }
-            },
-            error -> Log.e("MyAmplifyApp",  "Download Failure ",error)
-    );
-}
 
 
 
@@ -225,7 +241,6 @@ public void Displayphoto(){
     protected void onActivityResult(int requesstCode,int resultCode, @Nullable Intent data) {
         super.onActivityResult(requesstCode, resultCode, data);
         assert data != null;
-//        dataUri = data.getData();
          uri = data.getData();
 
         String src = uri.getPath();
@@ -240,6 +255,7 @@ public void Displayphoto(){
             InputStream inputStream = getContentResolver().openInputStream(data.getData());
             FileUtils.copy(inputStream, new FileOutputStream(uploadFile));
             uploadFile();
+
 
         } catch (IOException e) {
             e.printStackTrace();
