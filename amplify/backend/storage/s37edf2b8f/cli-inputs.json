@@ -1,0 +1,14 @@
+{
+  "resourceName": "s37edf2b8f",
+  "policyUUID": "7edf2b8f",
+  "bucketName": "whiskers56a450278ad849f0960bd3133d1ba6a0",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
