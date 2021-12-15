@@ -136,7 +136,7 @@ public class LandingPage extends AppCompatActivity implements SwipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener(this);
         topAppBar = findViewById(R.id.topAppBar);
 
-        PostAdapter adapter = new PostAdapter(posts);
+        PostAdapter adapter = new PostAdapter(posts,this);
         RecyclerView recyclerView = findViewById(R.id.landView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
