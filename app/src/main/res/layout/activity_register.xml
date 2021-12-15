@@ -85,7 +85,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:hint="@string/password"
+
+                android:hint="@string/password"
             android:layoutDirection="ltr"
             android:textColorHint="@color/design_default_color_on_secondary"
             app:boxCornerRadiusBottomEnd="20dp"
@@ -100,6 +101,7 @@
             app:layout_constraintWidth_percent="0.8">
 
             <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="@color/black"
                 android:id="@+id/registerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

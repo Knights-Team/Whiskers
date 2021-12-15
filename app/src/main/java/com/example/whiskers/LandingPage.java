@@ -87,7 +87,7 @@ public class LandingPage extends AppCompatActivity implements SwipeRefreshLayout
                                     msg = "Subs failed";
                                 }
                                 Log.d(TAG, msg);
-                                Toast.makeText(LandingPage.this, msg, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(LandingPage.this, msg, Toast.LENGTH_SHORT).show();
                             });
                 },
                 failure -> Log.e("Amplify", "Could not query DataStore", failure)

@@ -110,6 +110,7 @@ public class Register extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("whiskers", MODE_PRIVATE);
                     @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("email", email);
+                    editor.putString("password",password);
                     editor.apply();
                 },
                 error -> Log.e("Amplify", "Sign up failed", error)

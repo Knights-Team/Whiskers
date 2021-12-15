@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="84dp"
-                android:text="@string/get_started"
+                android:text="@string/homeless_pets_home"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 app:layout_constraintEnd_toEndOf="parent"

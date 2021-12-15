@@ -31,4 +31,8 @@
     <string name="post_blog">Post </string>
     <string name="send_current_location">Send current location</string>
     <string name="details">Details</string>
+    <string name="todo">todo</string>
+    <string name="homeless_pets_home">Homeless Pets Home</string>
+    <string name="edit_profile">edit Profile</string>
+    <string name="logout">logout</string>
 </resources>

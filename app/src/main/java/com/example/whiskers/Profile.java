@@ -28,6 +28,8 @@ public class Profile extends AppCompatActivity {
     String authEmail =authUser.getUsername();
     String myId;
     String s1 , s2 , s3;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @SuppressLint("ResourceAsColor")
@@ -36,6 +38,11 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Button logout=(Button)findViewById(R.id.logout);
+        sharedPreferences = getApplicationContext().getSharedPreferences("User", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        String location = sharedPreferences.getString("location","No Location");
+        TextView locationText = findViewById(R.id.tv_address);
+        locationText.setText(location);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,8 +63,6 @@ public class Profile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("User", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("email",s1);
                 editor.putString("fullName",s2);
                 editor.putString("phoneNumber",s3);
@@ -111,7 +116,7 @@ public class Profile extends AppCompatActivity {
 
 
         Amplify.DataStore.query(
-        User.class,
+        User.class,User.EMAIL.contains(authEmail),
         items -> {
         while (items.hasNext()) {
         User item = items.next();
@@ -126,7 +131,7 @@ public class Profile extends AppCompatActivity {
             s3 = phone;
             Boolean volunteer=item.getVolunteer();
             volunteerBtn.setText(volunteer? "Become Non Volunteer :(": "Become Volunteer");
-            volunteerBtn.setBackgroundColor(volunteer? R.color.black: R.color.light_orange);
+//            volunteerBtn.setBackgroundColor(volunteer? R.color.black: R.color.light_orange);
             System.out.println(email);
             System.out.println(name);
             System.out.println(phone);

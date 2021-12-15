@@ -20,12 +20,21 @@ public class EmailConfirmationActivity extends AppCompatActivity {
 
     Handler handler = new Handler();
     TextInputLayout verficConfirm;
+    SharedPreferences sharedPreferences;
     final Runnable SignUpRunnable = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(getApplicationContext(),LandingPage.class);
-            startActivity(intent);
-            finish();
+            String email = sharedPreferences.getString("email","email");
+            String password = sharedPreferences.getString("password","password");
+                Amplify.Auth.signIn(
+                        email,
+                        password,
+                        result -> {
+                            startActivity(new Intent(EmailConfirmationActivity.this,LandingPage.class));
+                            finish();
+                        },
+                        error -> handler.post(notSignUpRunnable)
+                );
         }
     };
 
@@ -45,6 +54,7 @@ public class EmailConfirmationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_confirmation);
         verficConfirm = findViewById(R.id.verficationConfirm);
+        sharedPreferences = getApplicationContext().getSharedPreferences("whiskers",MODE_PRIVATE);
 
     }
     public void verifyEmail(View view) {
@@ -73,8 +83,6 @@ public class EmailConfirmationActivity extends AppCompatActivity {
         Amplify.Auth.confirmSignUp(
                 email,
                 verificationCode,
-
-
                 result -> handler.post(SignUpRunnable),
                 error -> handler.post(notSignUpRunnable));
 
