@@ -91,37 +91,20 @@ public class LandingPage extends AppCompatActivity implements SwipeRefreshLayout
                     Toast.makeText(LandingPage.this, msg, Toast.LENGTH_SHORT).show();
                 });
 
-        // The topic name can be optionally prefixed with "/topics/".
 
 
-// See documentation on defining a message payload.
-
-//        Message message = Message.builder()
-//                .putData("score", "850")
-//                .setTopic(topic)
-//                .build();
-        Bundle bundle = new Bundle();
-        bundle.putString("Score", "850");
-        bundle.putString("topic", topic);
-        RemoteMessage remoteMessage = new RemoteMessage(bundle);
-        JSONObject main = new JSONObject();
         try {
+            JSONObject main = new JSONObject();
             main.put("to", "/topics/" + topic);
             JSONObject scnd = new JSONObject();
             scnd.put("title", "Just Title");
             scnd.put("body", "BBBBBB");
             main.put("notification", scnd);
 
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, main, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, main, response -> {
 
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
+            }, error -> {
 
-                }
             }) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
@@ -137,16 +120,6 @@ public class LandingPage extends AppCompatActivity implements SwipeRefreshLayout
             e.printStackTrace();
         }
 
-// Send a message to the devices subscribed to the provided topic.
-//        String response = null;
-//        try {
-//            response = FirebaseMessaging.getInstance().send(message);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//// Response is a message ID string.
-//        Log.d(TAG, "Successfully sent message: " + response);
 
 
         Amplify.DataStore.query(Post.class,
