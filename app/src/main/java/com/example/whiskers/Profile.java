@@ -30,6 +30,7 @@ public class Profile extends AppCompatActivity {
     String s1 , s2 , s3;
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,13 @@ public class Profile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("User", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("email",s1);
+                editor.putString("fullName",s2);
+                editor.putString("phoneNumber",s3);
+                editor.putString("userID",myId);
+                editor.apply();
                 startActivity(new Intent(Profile.this, editProfile.class));
 
 
@@ -73,7 +81,7 @@ public class Profile extends AppCompatActivity {
                                         .email(s1)
                                         .fullName(s2)
                                         .phoneNumber(s3)
-                                        .volunteer(true)
+                                        .volunteer(!original.getVolunteer())
                                         .build();
                                 Amplify.DataStore.save(updatedItem,
                                         updated -> Log.i("MyAmplifyApp", "Updated a post."),
@@ -84,7 +92,7 @@ public class Profile extends AppCompatActivity {
                         failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
 
                 );
-                startActivity(new Intent(Profile.this, Profile.class));
+//                startActivity(new Intent(Profile.this, Profile.class));
                 finish();
             }
 
@@ -116,12 +124,14 @@ public class Profile extends AppCompatActivity {
             s2= name;
             String phone=item.getPhoneNumber();
             s3 = phone;
-            String volunteer=item.getVolunteer().toString();
+            Boolean volunteer=item.getVolunteer();
+            volunteerBtn.setText(volunteer? "Become Non Volunteer :(": "Become Volunteer");
+            volunteerBtn.setBackgroundColor(volunteer? R.color.black: R.color.light_orange);
             System.out.println(email);
             System.out.println(name);
             System.out.println(phone);
             System.out.println(volunteer);
-            showProfile(name ,email ,phone ,volunteer);
+            showProfile(name ,email ,phone ,volunteer.toString());
 
 
         }

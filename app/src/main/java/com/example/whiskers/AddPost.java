@@ -215,7 +215,6 @@ public class AddPost extends AppCompatActivity {
 
 
 
-    }
 
 
 //    @SuppressLint("SimpleDateFormat")
@@ -243,7 +242,7 @@ public class AddPost extends AppCompatActivity {
     @SuppressLint("IntentReset")
     private  void  pickFile(){
         @SuppressLint("IntentReset")  Intent selecteFile = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        selecteFile.setType(("*/*"));
+        selecteFile.setType(("image/*"));
         selecteFile=Intent.createChooser(selecteFile,"Select File");
         startActivityForResult(selecteFile,1234);
 

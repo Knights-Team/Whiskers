@@ -18,8 +18,16 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "storage": {
+        "s3839a2526": {
+            "BucketName": "string",
+            "Region": "string"
+        },
+        "whiskersm": {
+            "BucketName": "string",
+            "Region": "string"
+        },
         "s37edf2b8f": {
-           "BucketName": "string",
+            "BucketName": "string",
             "Region": "string"
         },
         "s3balqees": {
